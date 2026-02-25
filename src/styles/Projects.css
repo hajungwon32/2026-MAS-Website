@@ -1,64 +1,96 @@
+/* 폰트 설정 */
 @font-face {
     font-family: "Pretendard-Medium";
     src: url("../fonts/Pretendard/Pretendard-Medium.otf");
 }
-/* 폰트 설정 */
+
 @font-face {
     font-family: "Orbitron-SemiBold";
     src: url("../fonts/Orbitron/Orbitron-SemiBold.ttf");
 }
-.project{
+
+/* 전체 컨테이너 */
+.project {
     padding-top: 115px;
-}
-.list {
-    margin-left: 20px;
+    width: 100%;
     display: flex;
-    gap: 43px;
-    justify-content: center;
-    margin-top: 75px;
+    flex-direction: column;
+    align-items: center; /* 내부 요소들 중앙 정렬 */
 }
+
+/* 필터 버튼 리스트 */
+.list {
+    display: flex;
+    gap: 3vw; /* 간격도 화면 크기에 반응 */
+    justify-content: center;
+    margin-top: 5vw;
+    width: 100%;
+}
+
 .list button {
     cursor: pointer;
+    border: none;
+    outline: none;
 }
-.selected {
+
+.selected, .notSelect {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Orbitron-SemiBold",sans-serif;
-    border: 1px solid white;
-    border-radius: 14px;
-    font-size: 18px; 
-    background-color: rgba(255, 157, 0, 0.32);
+    border-radius: 14px; /* 곡률도 비율대로 */
+    font-family: "Orbitron-SemiBold", sans-serif;
+    font-size: 18px;
+    padding: 1vw 2vw;
+    min-width: 80px;
     padding: 16px 27px;
+    cursor: pointer;
+}
+/* 선택된 버튼 */
+.selected {
+    border: 1px solid white !important; /* border가 있다면 강제 적용 */
+    background-color: rgba(255, 157, 0, 0.32);
     color: #FFF;
 }
 
+/* 선택되지 않은 버튼 */
 .notSelect {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Orbitron-SemiBold",sans-serif;
-    border: 1px solid #9D9D9D;
-    border-radius: 14px;
-    font-size: 18px; 
+    border: 1px solid #9D9D9D !important;
     color: #9D9D9D;
     background-color: #0D0D0D;
-    padding: 16px 27px;
-    color: #9D9D9D;
 }
 
-/* 프로젝트 박스 컴포넌트 */
 .allProjects {
     display: grid;
-    grid-template-columns: repeat(2, 440px);
+    /* 창이 넓을 때는 최대 440px 2열, 창이 좁아지면 비율대로 축소 */
+    grid-template-columns: repeat(2, minmax(0, 440px)); 
     justify-content: center;
-    gap: 34px;
+    gap: 20px;
     margin-top: 68px;
     margin-bottom: 68px;
+    width: 90%; /* 양옆 여유 공간 */
+    max-width: 900px; /* (440px * 2) + gap(20px) */
 }
+
+/* --- 반응형 미디어 쿼리 --- */
+
 @media (max-width: 768px) {
+    .list {
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .selected, .notSelect {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
     .allProjects {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
+        grid-template-columns: minmax(0, 440px); 
+        gap: 25px;
+    }
+}
+@media (max-width: 600px) {
+    .allProjects {
+        grid-template-columns: minmax(0, 440px);
     }
 }

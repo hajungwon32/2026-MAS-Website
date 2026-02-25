@@ -12,33 +12,38 @@ body {
 .mainMembers {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 20%, rgba(255, 103, 35, 0.50) 55%, rgba(0, 0, 0, 0.50) 90%);
   padding: 115px 0;
+  padding: 8vw 0; /* 상하 패딩 반응형 */
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .members-intro {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 210px 74px;
+  /* 양옆 210px 대신 10vw로 유연하게 조절 */
+  padding: 0 10vw 5vw; 
+  box-sizing: border-box;
 }
 /* 제목 */
 .members-intro h1 {
   color: #FF6723;
   font-family: "Orbitron-Bold", sans-serif;
-  font-size: 64px;
-  /* 제목과 문구 사이 간격 */
-  margin-bottom: 27px;
+  font-size: clamp(32px, 4.5vw, 64px);
+  margin-bottom: 1.5vw;
 }
 /* 문구 */
 .members-intro p {
   color: #FFF;
   font-family: "Pretendard-Medium", sans-serif;
-  font-size: 19px;
+  font-size: clamp(14px, 1.2vw, 19px);
 }
 /* 자세히 보기 */
 .members-btn {
-  width: 106px;
-  height: 44px;
-  font-size: 17px;
+  width: clamp(100px, 9vw, 120px);
+  height: clamp(38px, 3.5vw, 44px);
+  font-size: clamp(13px, 1.1vw, 17px);
   color: White;
   border: 2px solid white;
   border-radius: 100px;
@@ -79,4 +84,11 @@ body {
 /* 화살표 선 */
 .members-btn:hover path {
   stroke: white;
+}
+@media (max-width: 768px) {
+  .members-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
 }

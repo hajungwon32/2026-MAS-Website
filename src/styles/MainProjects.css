@@ -8,21 +8,21 @@
 }
 
 #projects {
-  padding-top: 115px;
-  padding-bottom: 115px;
+  padding-top: 8vw; /* 상하 여백도 화면에 비례 */
+  padding-bottom: 8vw;
 }
 /* projects-intro */
 .projects-intro {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 200px 108px;
+  padding: 0 10vw 6vw;
 }
 /* 제목 */
 .projects-intro h1 {
   color: #ff6723;
   font-family: "Orbitron-Bold", sans-serif;
-  font-size: 64px;
+  font-size: clamp(32px, 4.5vw, 64px);
   /* 제목과 문구 사이 간격 */
   margin-bottom: 27px;
 }
@@ -30,13 +30,13 @@
 .projects-intro p {
   color: #fff;
   font-family: "Pretendard-Medium", sans-serif;
-  font-size: 19px;
+  font-size: clamp(14px, 1.3vw, 19px);
 }
 /* 자세히 보기 */
 .projects-btn {
-  width: 139px;
-  height: 45px;
-  font-size: 17px;
+  width: clamp(120px, 10vw, 139px);
+  height: clamp(40px, 3.5vw, 45px);
+  font-size: clamp(14px, 1.1vw, 17px);
   color: White;
   border: 2px solid white;
   border-radius: 100px;
@@ -76,4 +76,12 @@
 /* 화살표 선 */
 .projects-btn:hover path {
   stroke: white;
+}
+@media (max-width: 768px) {
+  .projects-intro {
+    flex-direction: column; /* 세로 정렬 */
+    align-items: flex-start;
+    gap: 30px;
+    padding: 0 5vw 40px;
+  }
 }
