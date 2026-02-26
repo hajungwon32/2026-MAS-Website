@@ -16,14 +16,15 @@
     /* 화면 너비의 약 22% 비율로 높이 유지 */
     height: 22vw; 
     min-height: 160px; /* 너무 작아지는 것 방지 */
-    background-image: url("/titleBackground.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; 
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.5px, transparent 0), url("/titleBackground.svg");
+    background-size: 20px 20px, cover; 
+    background-repeat: repeat, no-repeat;
+    background-position: center, center;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    
 
 }
 .title {
