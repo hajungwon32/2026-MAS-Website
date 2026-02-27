@@ -13,9 +13,8 @@
 
 .banner {
     width: 100%;
-    /* 화면 너비의 약 22% 비율로 높이 유지 */
-    height: 22vw; 
-    min-height: 160px; /* 너무 작아지는 것 방지 */
+    height: 22vw;
+    min-height: clamp(120px, 15vw, 250px);
     background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.5px, transparent 0), url("/titleBackground.svg");
     background-size: 20px 20px, cover; 
     background-repeat: repeat, no-repeat;
@@ -24,8 +23,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-
 }
 .title {
     background: none;
@@ -33,7 +30,6 @@
 /* PROJECTS */
 .title h1 {
     font-family: "Orbitron-ExtraBold", sans-serif;
-    /* 64px를 기준으로 화면이 작아지면 같이 작아짐 (최소 32px) */
     font-size: clamp(32px, 4.5vw, 64px); 
     color: white;
     margin-bottom: 1.5vw;
@@ -41,8 +37,19 @@
 /* 부제목 */
 .title p {
     font-family: "Pretendard-Medium", sans-serif;
-    /* 17px 기준으로 화면 따라 축소 (최소 13px) */
     font-size: clamp(13px, 1.2vw, 17px);
     color: #C3C3C3;
     line-height: 1.5;
+}
+@media (max-width: 1023px) {
+    .banner {
+        height: 25vw; 
+    }
+}
+
+@media (max-width: 767px) {
+    .banner {
+        height: 35vw; 
+        background-size: 15px 15px, cover; 
+    }
 }
