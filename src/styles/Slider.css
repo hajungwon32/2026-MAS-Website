@@ -20,7 +20,6 @@
   object-fit: cover;
 }
 
-/* 프로젝트 전용 슬라이드 카드 크기 (비교용) */
 .projects-slideUp, .projects-slideDown {
   width: clamp(220px, 27vw, 387px);
   aspect-ratio: 387 / 219;
@@ -29,7 +28,25 @@
   object-fit: cover;
 }
 
+.projects-mobile {
+  display: none;
+  width: 168px;
+  height: 95px;
+  aspect-ratio: 168/95;
+  margin-right: 2vw;
+  border-radius: 10px;
+  object-fit: cover;
+}
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@media (max-width: 426px) {
+  .projects-mobile {
+    display: inline;
+  }
+  .projects-slideUp, .projects-slideDown {
+    display: none;
+  }
 }
