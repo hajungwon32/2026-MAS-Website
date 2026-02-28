@@ -49,4 +49,8 @@
   .projects-slideUp, .projects-slideDown {
     display: none;
   }
+  .members-slide {
+    width: 124px;
+    height: 160px;
+  }
 }
